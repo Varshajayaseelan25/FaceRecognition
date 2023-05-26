@@ -1,0 +1,16 @@
+import face_recognition  
+  
+// load the image //  
+image = face_recognition.load_image_file("image.jpg")  
+  
+// detect faces in the image //  
+face_locations = face_recognition.face_locations(image)  
+  
+// loop through the face locations and draw rectangles around the faces //  
+for face_location in face_locations:  
+    top, right, bottom, left = face_location  
+    cv2.rectangle(image, (left, top), (right, bottom), (0, 0, 255), 2)  
+  
+// display the image //  
+cv2.imshow("Faces", image)  
+cv2.waitKey(0)  
